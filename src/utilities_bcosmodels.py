@@ -71,5 +71,12 @@ from bcos.models.vgg import (
 
 # Dictionary: Models dictionary
 MODELS_DICT = {
-
+    "baseline_densenet121":baseline_densenet121(num_classes=0, pretrained=False),
+    "baseline_densenet161":baseline_densenet161(num_classes=0, pretrained=False),
+    "baseline_densenet169":baseline_densenet169(num_classes=0, pretrained=False),
+    "baseline_densenet201":baseline_densenet201(num_classes=0, pretrained=False),
+    "bcosdensenet121":bcosdensenet121({'num_classes':0}),
+    "bcosdensenet161":bcosdensenet161({'num_classes':0}),
+    "bcosdensenet169":bcosdensenet169({'num_classes':0}),
+    "bcosdensenet201":bcosdensenet201({'num_classes':0})
 }

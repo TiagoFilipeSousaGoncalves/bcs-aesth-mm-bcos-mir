@@ -15,7 +15,8 @@ from torch.utils.data import DataLoader
 from torch.nn import TripletMarginLoss
 
 # Project Imports
-from utilities_imgmodels import MODELS_DICT as models_dict
+# from utilities_imgmodels import MODELS_DICT as models_dict
+from utilities_bcosmodels import MODELS_DICT as models_dict
 from utilities_preproc import sample_manager
 from utilities_traintest import TripletDataset, train_model, eval_model
 
@@ -126,7 +127,7 @@ if __name__ == "__main__":
 
         # Initialize WandB
         wandb_run = wandb.init(
-            project="bcs-aesth-mm-attention-mir",
+            project="bcs-aesth-mm-bcos-mir",
             name=config_json["model_name"]+'_'+timestamp,
             config=wandb_project_config
         )

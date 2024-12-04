@@ -8,6 +8,7 @@ import math
 import re
 from collections import OrderedDict
 from typing import Any, Callable, List, Optional, Tuple, Union
+from PIL import Image
 
 # PyTorch Imports
 import torch
@@ -17,24 +18,13 @@ import torch.utils.checkpoint as cp
 from torch import Tensor
 from torch.hub import load_state_dict_from_url
 import torchvision
+from torchvision import transforms
 
 # Bcos Imports
+import bcos.data.transforms as custom_transforms
 from bcos.common import BcosUtilMixin
 from bcos.modules import BcosConv2d, LogitLayer, norms
 from bcos.modules.common import DetachableModule
-
-__all__ = [
-    "BcosDenseNet",
-    "bcosdensenet121",
-    "bcosdensenet169",
-    "bcosdensenet201",
-    "bcosdensenet161",
-    "BaselineDenseNet",
-    "baseline_densenet121",
-    "baseline_densenet161",
-    "baseline_densenet169",
-    "baseline_densenet201"
-]
 
 
 
@@ -301,13 +291,19 @@ class BcosDenseNet(BcosUtilMixin, nn.Module):
         # Final norm layer
         self.features.add_module("norm5", norm_layer(num_features))
 
-        # Diff to torchvision: changed Linear layer to BcosConv (conv classifier)
-        self.classifier = conv_layer(num_features, num_classes, kernel_size=1)
+        
         self.num_classes = num_classes
-        self.logit_layer = LogitLayer(
-            logit_temperature=logit_temperature,
-            logit_bias=logit_bias or -math.log(num_classes - 1),
-        )
+        if num_classes == 0:
+            self.classifier = nn.Identity()
+            self.logit_layer = nn.Identity()
+        else:
+        # Diff to torchvision: changed Linear layer to BcosConv (conv classifier)
+        # self.num_classes = num_classes
+            self.classifier = conv_layer(num_features, num_classes, kernel_size=1)
+            self.logit_layer = LogitLayer(
+                logit_temperature=logit_temperature,
+                logit_bias=logit_bias or -math.log(num_classes - 1),
+            )
         # Diff End
 
         # Official init from torch repo.
@@ -341,6 +337,21 @@ class BcosDenseNet(BcosUtilMixin, nn.Module):
     def get_feature_extractor(self) -> nn.Module:
         """Returns the feature extractor part of the model. Without global pooling."""
         return self.features
+    
+    # Method: get_transforms
+    def get_transform(self):
+        def transform(image_path):
+            transforms_ = transforms.Compose(
+                [
+                    transforms.Resize((224, 224)),
+                    transforms.ToTensor(),
+                    custom_transforms.AddInverse(),
+                ]
+            )
+            image = Image.open(image_path).convert('RGB')
+            image_trans = transforms_(image)
+            return image_trans
+        return transform
 
 
 
@@ -466,7 +477,10 @@ class BaselineDenseNet(BcosUtilMixin, nn.Module):
 
         # Assign variables
         self.features = features
-        self.classifier = nn.Linear(in_features=in_features, out_features=num_classes)
+        if num_classes == 0:
+            self.classifier == nn.Identity()
+        else:
+            self.classifier = nn.Linear(in_features=in_features, out_features=num_classes)
 
         return
 
@@ -488,6 +502,21 @@ class BaselineDenseNet(BcosUtilMixin, nn.Module):
     def get_feature_extractor(self) -> nn.Module:
         """Returns the feature extractor part of the model. Without global pooling."""
         return self.features
+    
+    # Method: get_transforms
+    def get_transform(self):
+        def transform(image_path):
+            transforms_ = transforms.Compose(
+                [
+                    transforms.Resize((224, 224)),
+                    transforms.ToTensor(),
+                    transforms.Normalize(mean=(0.485, 0.456, 0.406), std=(0.229, 0.224, 0.225)),
+                ]
+            )
+            image = Image.open(image_path).convert('RGB')
+            image_trans = transforms_(image)
+            return image_trans
+        return transform
 
 
 
