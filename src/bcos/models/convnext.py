@@ -19,17 +19,6 @@ from bcos.modules import BcosConv2d, LogitLayer, norms
 
 
 
-__all__ = [
-    "BcosConvNeXt",
-    "bcosconvnext_atto",
-    "bcosconvnext_tiny",
-    "bcosconvnext_small",
-    "bcosconvnext_base",
-    "bcosconvnext_large",
-    "CNBlock",
-    "CNBlockConfig",
-]
-
 # Constants
 DEFAULT_NORM_LAYER = norms.NoBias(norms.DetachablePositionNorm2d)
 DEFAULT_CONV_LAYER = BcosConv2d

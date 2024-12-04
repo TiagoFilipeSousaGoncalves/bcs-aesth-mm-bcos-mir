@@ -16,18 +16,6 @@ import torch.nn.functional as F
 from bcos.common import BcosUtilMixin
 from bcos.modules import BcosConv2d, LogitLayer, norms
 
-__all__ = [
-    "BcosVGG",
-    "bcosvgg11",
-    "bcosvgg11_bnu",
-    "bcosvgg13",
-    "bcosvgg13_bnu",
-    "bcosvgg16",
-    "bcosvgg16_bnu",
-    "bcosvgg19_bnu",
-    "bcosvgg19",
-]
-
 
 
 # Constants

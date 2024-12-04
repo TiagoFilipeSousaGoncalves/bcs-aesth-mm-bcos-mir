@@ -163,3 +163,10 @@ cython_debug/
 
 # macOS
 *.DS_Store
+
+# SLURM
+*.out
+*.err
+
+# W&B
+wandb
