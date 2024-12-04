@@ -8,26 +8,49 @@ from torch.nn import functional as F
 import torchvision.transforms as transforms
 from torchvision.models import resnet50, ResNet50_Weights, vgg16, VGG16_Weights
 
+# BCos Imports
+from bcos.models.convnext import (
+    convnext_atto,
+    convnext_tiny,
+    convnext_small,
+    convnext_base,
+    convnext_large
+)
+from bcos.models.densenet import (
+    baseline_densenet121,
+    baseline_densenet161,
+    baseline_densenet169,
+    baseline_densenet201,
+    densenet121,
+    densenet161,
+    densenet169,
+    densenet201,
+)
+from bcos.models.resnet import (
+    resnet18,
+    resnet34,
+    resnet50,
+    resnet101,
+    resnet152,
+    resnext50_32x4d,
+    resnext101_32x8d,
+    wide_resnet50_2,
+    wide_resnet101_2
+)
+from bcos.models.vgg import (
+    vgg11,
+    vgg11_bnu,
+    vgg13,
+    vgg13_bnu,
+    vgg16,
+    vgg16_bnu,
+    vgg19,
+    vgg19_bnu
+)
+
 
 
 # Dictionary: Models dictionary
 MODELS_DICT = {
-    "Google_Base_Patch16_224":Google_Base_Patch16_224(),
-    "DeiT_Base_Patch16_224":DeiT_Base_Patch16_224(),
-    "Beit_Base_Patch16_224":Beit_Base_Patch16_224(),
-    "DinoV2_Base_Patch16_224":DinoV2_Base_Patch16_224(),
-    "ResNet50_Base_224":ResNet50_Base_224(),
-    "VGG16_Base_224":VGG16_Base_224(),
-    "CrossViT_Tiny240":CrossViT_Tiny240(),
-    "LeViTConv256":LeViTConv256(),
-    "ConViT_Tiny":ConViT_Tiny(),
-    "MaxViT_Tiny_224":MaxViT_Tiny_224(),
-    "MViTv2_Tiny":MViTv2_Tiny(),
-    "DaViT_Tiny":DaViT_Tiny(),
-    "Google_Base_Patch16_224_MLP":Google_Base_Patch16_224_MLP(),
-    "DinoV2_Base_Patch16_224_MLP":DinoV2_Base_Patch16_224_MLP(),
-    "Beit_Base_Patch16_224_MLP":Beit_Base_Patch16_224_MLP(),
-    "DeiT_Base_Patch16_224_MLP":DeiT_Base_Patch16_224_MLP(),
-    "ResNet50_Base_224_MLP":ResNet50_Base_224_MLP(),
-    "VGG16_Base_224_MLP":VGG16_Base_224_MLP()
+
 }

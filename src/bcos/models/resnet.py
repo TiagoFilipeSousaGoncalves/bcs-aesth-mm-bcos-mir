@@ -1,7 +1,5 @@
 # B-cos ResNet/ResNeXt/Wide-ResNet models
 # Modified from https://github.com/pytorch/vision/blob/0504df5ddf9431909130e7788faf05446bb8a2/torchvision/models/resnet.py
-# CIFAR10 modifications from
-# https://github.com/chenyaofo/pytorch-cifar-models/blob/e9482ebc665084761ad9c84d36c83cbb82/pytorch_cifar_models/resnet.py
 
 
 

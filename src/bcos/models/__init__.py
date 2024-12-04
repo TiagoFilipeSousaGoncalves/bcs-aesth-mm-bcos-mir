@@ -3,4 +3,3 @@ from .convnext import *
 from .densenet import *
 from .resnet import *
 from .vgg import *
-from .cinet import *
