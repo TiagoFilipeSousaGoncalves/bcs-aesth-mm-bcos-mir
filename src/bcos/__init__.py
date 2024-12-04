@@ -21,7 +21,7 @@ import bcos.modules as modules
 import bcos.optim as optim
 
 # This module contains the settings of the package
-import bcos.settings as settings
+# import bcos.settings as settings
 
 # This module contains some utility functions/classes related to B-cos
 from bcos.common import (
@@ -30,18 +30,18 @@ from bcos.common import (
     gradient_to_image,
     plot_contribution_map,
 )
-from bcos.version import __version__
+# from bcos.version import __version__
 
-__all__ = [
-    "presets",
-    "transforms",
-    "models",
-    "pretrained",
-    "modules",
-    "optim",
-    "settings",
-    "BcosUtilMixin",
-    "explanation_mode",
-    "gradient_to_image",
-    "plot_contribution_map",
-]
+# __all__ = [
+#     "presets",
+#     "transforms",
+#     "models",
+#     "pretrained",
+#     "modules",
+#     "optim",
+#     "settings",
+#     "BcosUtilMixin",
+#     "explanation_mode",
+#     "gradient_to_image",
+#     "plot_contribution_map",
+# ]
