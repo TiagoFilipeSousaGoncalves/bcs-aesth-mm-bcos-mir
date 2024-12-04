@@ -21,11 +21,11 @@ from bcos.modules import BcosConv2d, LogitLayer, norms
 
 __all__ = [
     "BcosConvNeXt",
-    "convnext_atto",
-    "convnext_tiny",
-    "convnext_small",
-    "convnext_base",
-    "convnext_large",
+    "bcosconvnext_atto",
+    "bcosconvnext_tiny",
+    "bcosconvnext_small",
+    "bcosconvnext_base",
+    "bcosconvnext_large",
     "CNBlock",
     "CNBlockConfig",
 ]
@@ -256,7 +256,7 @@ def _convnext(
 
 
 # Function: BcosConvNeXtAtto
-def convnext_atto(
+def bcosconvnext_atto(
     *, pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosConvNeXt:
     block_setting = [
@@ -278,7 +278,7 @@ def convnext_atto(
 
 
 # Function: ConvNeXtTiny
-def convnext_tiny(
+def bcosconvnext_tiny(
     *, pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosConvNeXt:
     block_setting = [
@@ -300,7 +300,7 @@ def convnext_tiny(
 
 
 # Function: ConvNeXtSmall
-def convnext_small(
+def bcosconvnext_small(
     *, pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosConvNeXt:
     block_setting = [
@@ -322,7 +322,7 @@ def convnext_small(
 
 
 # Function: ConvNeXtBase
-def convnext_base(
+def bcosconvnext_base(
     *, pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosConvNeXt:
     block_setting = [
@@ -344,7 +344,7 @@ def convnext_base(
 
 
 # Function: ConvNeXtLarge
-def convnext_large(
+def bcosconvnext_large(
     *, pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosConvNeXt:
     block_setting = [

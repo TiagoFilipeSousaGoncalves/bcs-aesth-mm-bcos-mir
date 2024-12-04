@@ -25,10 +25,10 @@ from bcos.modules.common import DetachableModule
 
 __all__ = [
     "BcosDenseNet",
-    "densenet121",
-    "densenet169",
-    "densenet201",
-    "densenet161",
+    "bcosdensenet121",
+    "bcosdensenet169",
+    "bcosdensenet201",
+    "bcosdensenet161",
     "BaselineDenseNet",
     "baseline_densenet121",
     "baseline_densenet161",
@@ -388,7 +388,7 @@ def _densenet(
 
 
 # Function: BcosDenseNet121
-def densenet121(
+def bcosdensenet121(
     pretrained: bool = False,
     progress: bool = True,
     num_init_features=64,
@@ -408,7 +408,7 @@ def densenet121(
 
 
 # Function: BcosDenseNet161
-def densenet161(
+def bcosdensenet161(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosDenseNet:
     return _densenet(
@@ -418,7 +418,7 @@ def densenet161(
 
 
 # Function: BcosDenseNet169
-def densenet169(
+def bcosdensenet169(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosDenseNet:
     return _densenet(
@@ -428,7 +428,7 @@ def densenet169(
 
 
 # Function: BcosDenseNet201
-def densenet201(
+def bcosdensenet201(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosDenseNet:
     return _densenet(

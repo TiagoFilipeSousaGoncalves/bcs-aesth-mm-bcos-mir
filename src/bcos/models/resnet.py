@@ -510,7 +510,7 @@ def _resnet(
 
 
 # Function: BcosResNet18
-def resnet18(
+def bcosresnet18(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosResNet:
     return _resnet("resnet18", BasicBlock, [2, 2, 2, 2], pretrained, progress, **kwargs)
@@ -518,7 +518,7 @@ def resnet18(
 
 
 # Function: BcosResNet34
-def resnet34(
+def bcosresnet34(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosResNet:
     return _resnet("resnet34", BasicBlock, [3, 4, 6, 3], pretrained, progress, **kwargs)
@@ -526,7 +526,7 @@ def resnet34(
 
 
 # Function: BcosResNet50
-def resnet50(
+def bcosresnet50(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosResNet:
     return _resnet("resnet50", Bottleneck, [3, 4, 6, 3], pretrained, progress, **kwargs)
@@ -534,7 +534,7 @@ def resnet50(
 
 
 # Function: BcosResNet101
-def resnet101(
+def bcosresnet101(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosResNet:
     return _resnet(
@@ -544,7 +544,7 @@ def resnet101(
 
 
 # Function: BcosResNet152
-def resnet152(
+def bcosresnet152(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosResNet:
     return _resnet(
@@ -554,7 +554,7 @@ def resnet152(
 
 
 # Function: BcosResNeXt50_32x4d
-def resnext50_32x4d(
+def bcosresnext50_32x4d(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosResNet:
     kwargs["groups"] = 32
@@ -566,7 +566,7 @@ def resnext50_32x4d(
 
 
 # Function: BcosResNeXt101_32x8d
-def resnext101_32x8d(
+def bcosresnext101_32x8d(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosResNet:
     kwargs["groups"] = 32
@@ -583,7 +583,7 @@ def resnext101_32x8d(
 
 
 # Function: BcosWide_ResNet50_2
-def wide_resnet50_2(
+def bcoswide_resnet50_2(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosResNet:
     kwargs["width_per_group"] = 64 * 2
@@ -594,7 +594,7 @@ def wide_resnet50_2(
 
 
 # Function: BcosWide_ResNet101_2
-def wide_resnet101_2(
+def bcoswide_resnet101_2(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosResNet:
     kwargs["width_per_group"] = 64 * 2

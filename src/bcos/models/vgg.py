@@ -18,14 +18,14 @@ from bcos.modules import BcosConv2d, LogitLayer, norms
 
 __all__ = [
     "BcosVGG",
-    "vgg11",
-    "vgg11_bnu",
-    "vgg13",
-    "vgg13_bnu",
-    "vgg16",
-    "vgg16_bnu",
-    "vgg19_bnu",
-    "vgg19",
+    "bcosvgg11",
+    "bcosvgg11_bnu",
+    "bcosvgg13",
+    "bcosvgg13_bnu",
+    "bcosvgg16",
+    "bcosvgg16_bnu",
+    "bcosvgg19_bnu",
+    "bcosvgg19",
 ]
 
 
@@ -224,13 +224,13 @@ def _vgg(
 
 
 # Function: VGG11
-def vgg11(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> BcosVGG:
+def bcosvgg11(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> BcosVGG:
     return _vgg("vgg11", "A", pretrained, progress, norm_layer=nn.Identity, **kwargs)
 
 
 
 # Function: VGG11BNu
-def vgg11_bnu(
+def bcosvgg11_bnu(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosVGG:
     return _vgg("vgg11_bnu", "A", pretrained, progress, **kwargs)
@@ -238,13 +238,13 @@ def vgg11_bnu(
 
 
 # Function: VGG13
-def vgg13(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> BcosVGG:
+def bcosvgg13(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> BcosVGG:
     return _vgg("vgg13", "B", pretrained, progress, norm_layer=nn.Identity, **kwargs)
 
 
 
 # Function: VGG13BNu
-def vgg13_bnu(
+def bcosvgg13_bnu(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosVGG:
     return _vgg("vgg13_bnu", "B", pretrained, progress, **kwargs)
@@ -252,13 +252,13 @@ def vgg13_bnu(
 
 
 # Function: VGG16
-def vgg16(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> BcosVGG:
+def bcosvgg16(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> BcosVGG:
     return _vgg("vgg16", "D", pretrained, progress, norm_layer=nn.Identity, **kwargs)
 
 
 
 # Function: VGG16BNu
-def vgg16_bnu(
+def bcosvgg16_bnu(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosVGG:
     return _vgg("vgg16_bnu", "D", pretrained, progress, **kwargs)
@@ -266,13 +266,13 @@ def vgg16_bnu(
 
 
 # Function: VGG19
-def vgg19(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> BcosVGG:
+def bcosvgg19(pretrained: bool = False, progress: bool = True, **kwargs: Any) -> BcosVGG:
     return _vgg("vgg19", "E", pretrained, progress, norm_layer=nn.Identity, **kwargs)
 
 
 
 # Function: VGG19BNu
-def vgg19_bnu(
+def bcosvgg19_bnu(
     pretrained: bool = False, progress: bool = True, **kwargs: Any
 ) -> BcosVGG:
     return _vgg("vgg19_bnu", "E", pretrained, progress, **kwargs)
