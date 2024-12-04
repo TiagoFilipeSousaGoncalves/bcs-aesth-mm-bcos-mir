@@ -478,7 +478,7 @@ class BaselineDenseNet(BcosUtilMixin, nn.Module):
         # Assign variables
         self.features = features
         if num_classes == 0:
-            self.classifier == nn.Identity()
+            self.classifier = nn.Identity()
         else:
             self.classifier = nn.Linear(in_features=in_features, out_features=num_classes)
 
