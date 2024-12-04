@@ -26,6 +26,25 @@ from bcos.models.densenet import (
     bcosdensenet169,
     bcosdensenet201,
 )
+from bcos.models.pretrained import (
+    bcos_pretr_convnext_base,
+    bcos_pretr_vgg11_bnu,
+    bcos_pretr_resnext50_32x4d,
+    bcos_pretr_convnext_base_bnu,
+    bcos_pretr_convnext_tiny,
+    bcos_pretr_convnext_tiny_bnu,
+    bcos_pretr_densenet121,
+    bcos_pretr_densenet121_long,
+    bcos_pretr_densenet161,
+    bcos_pretr_densenet169,
+    bcos_pretr_densenet201,
+    bcos_pretr_resnet101,
+    bcos_pretr_resnet152,
+    bcos_pretr_resnet152_long,
+    bcos_pretr_resnet18,
+    bcos_pretr_resnet34,
+    bcos_pretr_resnet50
+)
 from bcos.models.resnet import (
     bcosresnet18,
     bcosresnet34,

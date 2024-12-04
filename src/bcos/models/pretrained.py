@@ -121,7 +121,7 @@ def _get_model(
 # Model Entrypoints
 # Function: BcosResNet18
 @register
-def resnet18(
+def bcos_pretr_resnet18(
     pretrained: bool = False, progress: bool = True, **kwargs
 ) -> "torch.nn.Module":
     r"""B-cos ResNet-18.
@@ -160,7 +160,7 @@ def resnet18(
 
 # Function: BcosResNet34
 @register
-def resnet34(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_resnet34(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos ResNet-34
 
     B-cos version of a ResNet-34 model.
@@ -197,7 +197,7 @@ def resnet34(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosResNet50
 @register
-def resnet50(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_resnet50(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos ResNet-50
 
     B-cos version of a ResNet-50 model.
@@ -234,7 +234,7 @@ def resnet50(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosResNet101
 @register
-def resnet101(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_resnet101(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos ResNet-101
 
     B-cos version of a ResNet-101 model.
@@ -271,7 +271,7 @@ def resnet101(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosResNet152
 @register
-def resnet152(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_resnet152(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos ResNet-152
 
     B-cos version of a ResNet-152 model.
@@ -308,7 +308,7 @@ def resnet152(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BCosResNeXt50_32x4d
 @register
-def resnext50_32x4d(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_resnext50_32x4d(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos ResNeXt-50 32x4d
 
     B-cos version of a ResNeXt-50 32x4d model.
@@ -345,7 +345,7 @@ def resnext50_32x4d(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosDenseNet121
 @register
-def densenet121(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_densenet121(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos DenseNet-121
 
     B-cos version of a DenseNet-121 model.
@@ -382,7 +382,7 @@ def densenet121(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosDenseNet161
 @register
-def densenet161(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_densenet161(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos DenseNet-161
 
     B-cos version of a DenseNet-161 model.
@@ -419,7 +419,7 @@ def densenet161(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosDenseNet169
 @register
-def densenet169(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_densenet169(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos DenseNet-169
 
     B-cos version of a DenseNet-169 model.
@@ -456,7 +456,7 @@ def densenet169(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosDenseNet201
 @register
-def densenet201(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_densenet201(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos DenseNet-201
 
     B-cos version of a DenseNet-201 model.
@@ -493,7 +493,7 @@ def densenet201(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosVGG11BNu
 @register
-def vgg11_bnu(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_vgg11_bnu(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos VGG-11 BNU
 
     B-cos version of a VGG-11 model with Batch Normalization without centering.
@@ -531,7 +531,7 @@ def vgg11_bnu(pretrained: bool = False, progress: bool = True, **kwargs):
 # Models trained much longer (600 epochs) with better accuracies
 # Function: BcosConvNeXtTiny
 @register
-def convnext_tiny(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_convnext_tiny(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos ConvNeXt-T
 
     B-cos version of a ConvNeXt-Tiny model with HW-normalization.
@@ -580,7 +580,7 @@ def convnext_tiny(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosConvNeXtBase
 @register
-def convnext_base(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_convnext_base(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos ConvNeXt-B
 
     B-cos version of a ConvNeXt-Base model with HW-normalization.
@@ -629,7 +629,7 @@ def convnext_base(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosConvNeXtTinyBNu
 @register
-def convnext_tiny_bnu(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_convnext_tiny_bnu(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos ConvNeXt-T with BNU
 
     B-cos version of a ConvNeXt-Tiny model with Batch Normalization without centering.
@@ -678,7 +678,7 @@ def convnext_tiny_bnu(pretrained: bool = False, progress: bool = True, **kwargs)
 
 # Function: BcosConvNeXtBaseNBu
 @register
-def convnext_base_bnu(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_convnext_base_bnu(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos ConvNeXt-B with BNU
 
     B-cos version of a ConvNeXt-Base model with Batch Normalization without centering.
@@ -727,7 +727,7 @@ def convnext_base_bnu(pretrained: bool = False, progress: bool = True, **kwargs)
 
 # Function: BcosDenseNet121Long
 @register
-def densenet121_long(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_densenet121_long(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos DenseNet-121 just trained longer.
 
     The model architecture is the same as the one from `densenet121`.
@@ -772,7 +772,7 @@ def densenet121_long(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosResNet50Long
 @register
-def resnet50_long(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_resnet50_long(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos ResNet-50 just trained longer.
 
     The model architecture is the same as the one from `resnet50`.
@@ -817,7 +817,7 @@ def resnet50_long(pretrained: bool = False, progress: bool = True, **kwargs):
 
 # Function: BcosResNet152Long
 @register
-def resnet152_long(pretrained: bool = False, progress: bool = True, **kwargs):
+def bcos_pretr_resnet152_long(pretrained: bool = False, progress: bool = True, **kwargs):
     """B-cos ResNet-152 just trained longer.
 
     The model architecture is the same as the one from `resnet152`.
