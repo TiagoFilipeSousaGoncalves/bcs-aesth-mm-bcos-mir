@@ -2,7 +2,7 @@
 This module contains the main public API of the bcos package.
 """
 # This module contains the preset transforms for ImageNet and C10
-import bcos.data.presets as presets
+# import bcos.data.presets as presets
 
 # This contains single module level transforms. Among others, the AddInverse transform
 # used to add inverse RGB channels to the input image.
