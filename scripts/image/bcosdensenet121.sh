@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --partition=debug_8gb
-#SBATCH --qos=debug_8gb
+#SBATCH --partition=gpu_min32gb
+#SBATCH --qos=gpu_min32gb
 #SBATCH --job-name=cind_breloai_bcos_ret
 #SBATCH --output=bcosdensenet121.out
 #SBATCH --error=bcosdensenet121.err
