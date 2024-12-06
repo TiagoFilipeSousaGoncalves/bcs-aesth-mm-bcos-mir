@@ -394,9 +394,9 @@ def _densenet(
     growth_rate: int,
     block_config: Union[Tuple[int, int, int], Tuple[int, int, int, int]],
     num_init_features: int,
-    pretrained: bool,
-    weights: str,
-    progress: bool,
+    pretrained: bool = False,
+    weights: str = '',
+    progress: bool = True,
     **kwargs: Any,
 ) -> BcosDenseNet:
 
@@ -417,14 +417,7 @@ def _densenet(
 
 
 # Function: bcosdensenet121
-def bcosdensenet121(
-    pretrained: bool = False,
-    weights: str = '',
-    progress: bool = True,
-    num_init_features=64,
-    growth_rate=32,
-    **kwargs: Any,
-) -> BcosDenseNet:
+def bcosdensenet121(pretrained: bool = False, weights: str = '', progress: bool = True, num_init_features=64, growth_rate=32, **kwargs: Any) -> BcosDenseNet:
     return _densenet("densenet121", growth_rate, (6, 12, 24, 16), num_init_features, pretrained, weights, progress, **kwargs)
 
 
