@@ -7,14 +7,14 @@
 
 
 
-echo "CINDERELLA BreLoAI Retrieval: A Study with Attention Mechanisms"
-# echo "Training Catalogue Type: E"
-# python src/main_image.py \
-#  --gpu_id 0 \
-#  --config_json 'config/image/E/bcosdensenet121.json' \
-#  --pickles_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/pickles/E' \
-#  --results_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/E' \
-#  --train_or_test 'train'
+echo "CINDERELLA BreLoAI Retrieval: A Study with Bcos Networks"
+echo "Training Catalogue Type: E"
+python src/main_image.py \
+ --gpu_id 0 \
+ --config_json 'config/image/E/bcosdensenet121.json' \
+ --pickles_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/pickles/E' \
+ --results_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/E' \
+ --train_or_test 'train'
 # echo "Testing Catalogue Type: E"
 # python src/main_image.py \
 #  --gpu_id 0 \

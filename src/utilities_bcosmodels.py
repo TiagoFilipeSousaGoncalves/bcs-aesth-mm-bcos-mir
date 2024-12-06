@@ -22,14 +22,14 @@ from bcos.models.densenet import (
     baseline_densenet169,
     baseline_densenet201,
     bcosdensenet121,
-    bcosdensenet121_pretr,
-    bcosdensenet121_pretr_l,
+    # bcosdensenet121_pretr,
+    # bcosdensenet121_pretr_l,
     bcosdensenet161,
-    bcosdensenet161_pretr,
+    # bcosdensenet161_pretr,
     bcosdensenet169,
-    bcosdensenet169_pretr,
+    # bcosdensenet169_pretr,
     bcosdensenet201,
-    bcosdensenet201_pretr
+    # bcosdensenet201_pretr
 )
 # from bcos.models.pretrained import (
 #     bcos_pretr_convnext_base,
@@ -85,12 +85,12 @@ MODELS_DICT = {
     "baseline_densenet201":baseline_densenet201(num_classes=0, pretrained=False),
     "baseline_densenet201_pretr":baseline_densenet201(num_classes=0, pretrained=True),
     "bcosdensenet121":bcosdensenet121(num_classes=0),
-    "bcosdensenet121_pretr":bcosdensenet121_pretr(num_classes=0),
-    "bcosdensenet121_pretr_l":bcosdensenet121_pretr_l(num_classes=0),
+    # "bcosdensenet121_pretr":bcosdensenet121_pretr(num_classes=0),
+    # "bcosdensenet121_pretr_l":bcosdensenet121_pretr_l(num_classes=0),
     "bcosdensenet161":bcosdensenet161(num_classes=0),
-    "bcosdensenet161_pretr":bcosdensenet161_pretr(num_classes=0),
+    # "bcosdensenet161_pretr":bcosdensenet161_pretr(num_classes=0),
     "bcosdensenet169":bcosdensenet169(num_classes=0),
-    "bcosdensenet169_pretr":bcosdensenet169_pretr(num_classes=0),
+    # "bcosdensenet169_pretr":bcosdensenet169_pretr(num_classes=0),
     "bcosdensenet201":bcosdensenet201(num_classes=0),
-    "bcosdensenet201_pretr":bcosdensenet201_pretr(num_classes=0)
+    # "bcosdensenet201_pretr":bcosdensenet201_pretr(num_classes=0)
 }

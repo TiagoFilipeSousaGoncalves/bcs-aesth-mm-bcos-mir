@@ -401,7 +401,7 @@ def _densenet(
 ) -> BcosDenseNet:
 
     assert arch in ("densenet121", "densenet161", "densenet169", "densenet201"), f"Please provide a valid architecture. {arch} is not valid."
-    print(kwargs)
+
     # Load model
     model = BcosDenseNet(growth_rate, block_config, num_init_features, **kwargs)
 
