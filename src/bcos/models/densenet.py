@@ -418,7 +418,16 @@ def _densenet(
 
 # Function: bcosdensenet121
 def bcosdensenet121(pretrained: bool = False, weights: str = '', progress: bool = False, num_init_features=64, growth_rate=32, **kwargs: Any) -> BcosDenseNet:
-    return _densenet("densenet121", growth_rate, (6, 12, 24, 16), num_init_features, pretrained, weights, progress, **kwargs)
+    return _densenet(
+        arch="densenet121",
+        growth_rate=growth_rate, 
+        block_config=(6, 12, 24, 16), 
+        num_init_features=num_init_features, 
+        pretrained=pretrained, 
+        weights=weights, 
+        progress=progress, 
+        **kwargs
+        )
 
 
 
