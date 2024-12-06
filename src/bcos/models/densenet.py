@@ -401,16 +401,13 @@ def _densenet(
 ) -> BcosDenseNet:
 
     assert arch in ("densenet121", "densenet161", "densenet169", "densenet201"), f"Please provide a valid architecture. {arch} is not valid."
-
+    print(kwargs)
     # Load model
     model = BcosDenseNet(growth_rate, block_config, num_init_features, **kwargs)
 
-    assert weights in URLS.keys() or weights == '', f"Please provide a valid weights string. {weights} is not valid."
-    
     # If we want a pretrained Bcos model on ImageNet
     if pretrained:
-        print(pretrained)
-        # assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
+        assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
         url = URLS[weights]
         state_dict = load_state_dict_from_url(url, progress=progress, check_hash=True)
         model.load_state_dict(state_dict)
