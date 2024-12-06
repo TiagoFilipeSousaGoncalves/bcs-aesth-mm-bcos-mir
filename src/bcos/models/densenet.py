@@ -407,6 +407,7 @@ def _densenet(
     
     # If we want a pretrained Bcos model on ImageNet
     if pretrained:
+        print(pretrained)
         assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
         url = URLS[weights]
         state_dict = load_state_dict_from_url(url, progress=progress, check_hash=True)
