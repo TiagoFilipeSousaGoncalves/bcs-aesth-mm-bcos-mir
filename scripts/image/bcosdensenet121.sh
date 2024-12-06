@@ -2,19 +2,19 @@
 #SBATCH --partition=gpu_min32gb
 #SBATCH --qos=gpu_min32gb
 #SBATCH --job-name=cind_breloai_bcos_ret
-#SBATCH --output=ConViT_Tiny.out
-#SBATCH --error=ConViT_Tiny.err
+#SBATCH --output=bcosdensenet121.out
+#SBATCH --error=bcosdensenet121.err
 
 
 
 echo "CINDERELLA BreLoAI Retrieval: A Study with Attention Mechanisms"
-echo "Training Catalogue Type: E"
-python src/main_image.py \
- --gpu_id 0 \
- --config_json 'config/image/E/bcosdensenet121.json' \
- --pickles_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/pickles/E' \
- --results_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/E' \
- --train_or_test 'train'
+# echo "Training Catalogue Type: E"
+# python src/main_image.py \
+#  --gpu_id 0 \
+#  --config_json 'config/image/E/bcosdensenet121.json' \
+#  --pickles_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/pickles/E' \
+#  --results_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/E' \
+#  --train_or_test 'train'
 # echo "Testing Catalogue Type: E"
 # python src/main_image.py \
 #  --gpu_id 0 \
@@ -25,13 +25,13 @@ python src/main_image.py \
 # echo "Finished"
 
 # echo "Training Catalogue Type: F"
-# python src/main_image.py \
+python src/main_image.py \
  --gpu_id 0 \
  --config_json 'config/image/F/bcosdensenet121.json' \
  --pickles_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/pickles/F' \
  --results_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/F' \
  --train_or_test 'train'
-echo "Testing Catalogue Type: F"
+# echo "Testing Catalogue Type: F"
 # python src/main_image.py \
 #  --gpu_id 0 \
 #  --pickles_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/pickles/F' \

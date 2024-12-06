@@ -7,7 +7,7 @@
 import math
 import re
 from collections import OrderedDict
-from typing import Any, Callable, List, Optional, Tuple, Union
+from typing import Any, Callable, List, Optional, Tuple, Union, Dict
 from PIL import Image
 
 # PyTorch Imports
@@ -31,6 +31,16 @@ from bcos.modules.common import DetachableModule
 # Constants
 DEFAULT_NORM_LAYER = norms.NoBias(norms.DetachablePositionNorm2d)
 DEFAULT_CONV_LAYER = BcosConv2d
+BASE = "https://github.com/B-cos/B-cos-v2/releases/download/v0.0.1-weights"
+
+# Dictionary: Map the BASE into a model name (URL) 
+URLS = {
+    "bcosdensenet121": f"{BASE}/densenet_121-b8daf96afb.pth",
+    "bcosdensenet161": f"{BASE}/densenet_161-9e9ea51353.pth",
+    "bcosdensenet169": f"{BASE}/densenet_169-7037ee0604.pth",
+    "bcosdensenet201": f"{BASE}/densenet_201-00ac87066f.pth",
+    "bcosdensenet121_long": f"{BASE}/densenet_121_long-5175461597.pth"
+}
 
 
 
@@ -385,66 +395,84 @@ def _densenet(
     block_config: Union[Tuple[int, int, int], Tuple[int, int, int, int]],
     num_init_features: int,
     pretrained: bool,
+    weights: str,
     progress: bool,
     **kwargs: Any,
 ) -> BcosDenseNet:
+
+    assert arch in ("densenet121", "densenet161", "densenet169", "densenet201"), f"Please provide a valid architecture. {arch} is not valid."
+
+    # Load model
     model = BcosDenseNet(growth_rate, block_config, num_init_features, **kwargs)
-    # if pretrained:
-    #     raise ValueError(
-    #         "If you want to load pretrained weights, then please use the entrypoints in "
-    #         "bcos.pretrained or bcos.model.pretrained instead."
-    #     )
+    
+    # If we want a pretrained Bcos model on ImageNet
+    if pretrained:
+        assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
+        url = URLS[weights]
+        state_dict = load_state_dict_from_url(url, progress=progress, check_hash=True)
+        model.load_state_dict(state_dict)
+
     return model
 
 
 
-# Function: BcosDenseNet121
+# Function: bcosdensenet121
 def bcosdensenet121(
     pretrained: bool = False,
+    weights: str = '',
     progress: bool = True,
     num_init_features=64,
     growth_rate=32,
     **kwargs: Any,
 ) -> BcosDenseNet:
-    return _densenet(
-        "densenet121",
-        growth_rate,
-        (6, 12, 24, 16),
-        num_init_features,
-        pretrained,
-        progress,
-        **kwargs,
-    )
+    return _densenet("densenet121", growth_rate, (6, 12, 24, 16), num_init_features, pretrained, weights, progress, **kwargs)
 
 
 
-# Function: BcosDenseNet161
-def bcosdensenet161(
-    pretrained: bool = False, progress: bool = True, **kwargs: Any
-) -> BcosDenseNet:
-    return _densenet(
-        "densenet161", 48, (6, 12, 36, 24), 96, pretrained, progress, **kwargs
-    )
+# Function: bcosdensenet121_pretr
+def bcosdensenet121_pretr(pretrained: bool = True, weights: str = "bcosdensenet121", progress: bool = True, num_init_features=64, growth_rate=32, **kwargs: Any) -> BcosDenseNet:
+    return _densenet("densenet121", growth_rate, (6, 12, 24, 16), num_init_features, pretrained, weights, progress, **kwargs)
 
 
 
-# Function: BcosDenseNet169
-def bcosdensenet169(
-    pretrained: bool = False, progress: bool = True, **kwargs: Any
-) -> BcosDenseNet:
-    return _densenet(
-        "densenet169", 32, (6, 12, 32, 32), 64, pretrained, progress, **kwargs
-    )
+# Function: bcosdensenet121_pretr_l
+def bcosdensenet121_pretr_l(pretrained: bool = True, weights: str = "bcosdensenet121_long", progress: bool = True, num_init_features=64, growth_rate=32, **kwargs: Any) -> BcosDenseNet:
+    return _densenet("densenet121", growth_rate, (6, 12, 24, 16), num_init_features, pretrained, weights, progress, **kwargs)
 
 
 
-# Function: BcosDenseNet201
-def bcosdensenet201(
-    pretrained: bool = False, progress: bool = True, **kwargs: Any
-) -> BcosDenseNet:
-    return _densenet(
-        "densenet201", 32, (6, 12, 48, 32), 64, pretrained, progress, **kwargs
-    )
+# Function: bcosdensenet161
+def bcosdensenet161(pretrained: bool = False, weights: str = '', progress: bool = True, **kwargs: Any) -> BcosDenseNet:
+    return _densenet("densenet161", 48, (6, 12, 36, 24), 96, pretrained, weights, progress, **kwargs)
+
+
+
+# Function: bcosdensenet161_pretr
+def bcosdensenet161_pretr(pretrained: bool = True, weights: str = 'bcosdensenet161', progress: bool = True, **kwargs: Any) -> BcosDenseNet:
+    return _densenet("densenet161", 48, (6, 12, 36, 24), 96, pretrained, weights, progress, **kwargs)
+
+
+# Function: bcosdensenet169
+def bcosdensenet169(pretrained: bool = False, weights: str = '', progress: bool = True, **kwargs: Any) -> BcosDenseNet:
+    return _densenet("densenet169", 32, (6, 12, 32, 32), 64, pretrained, weights, progress, **kwargs)
+
+
+
+# Function: bcosdensenet169_pretr
+def bcosdensenet169_pretr(pretrained: bool = True, weights: str = 'bcosdensenet169', progress: bool = True, **kwargs: Any) -> BcosDenseNet:
+    return _densenet("densenet169", 32, (6, 12, 32, 32), 64, pretrained, weights, progress, **kwargs)
+
+
+
+# Function: bcosdensenet201
+def bcosdensenet201(pretrained: bool = False, weights: str = '', progress: bool = True, **kwargs: Any) -> BcosDenseNet:
+    return _densenet("densenet201", 32, (6, 12, 48, 32), 64, pretrained, weights, progress, **kwargs)
+
+
+
+# Function: bcosdensenet201_pretr
+def bcosdensenet201_pretr(pretrained: bool = True, weights: str = 'bcosdensenet201', progress: bool = True, **kwargs: Any) -> BcosDenseNet:
+    return _densenet("densenet201", 32, (6, 12, 48, 32), 64, pretrained, weights, progress, **kwargs)
 
 
 
