@@ -396,7 +396,7 @@ def _densenet(
     num_init_features: int,
     pretrained: bool = False,
     weights: str = '',
-    progress: bool = True,
+    progress: bool = False,
     **kwargs: Any,
 ) -> BcosDenseNet:
 
@@ -417,7 +417,7 @@ def _densenet(
 
 
 # Function: bcosdensenet121
-def bcosdensenet121(pretrained: bool = False, weights: str = '', progress: bool = True, num_init_features=64, growth_rate=32, **kwargs: Any) -> BcosDenseNet:
+def bcosdensenet121(pretrained: bool = False, weights: str = '', progress: bool = False, num_init_features=64, growth_rate=32, **kwargs: Any) -> BcosDenseNet:
     return _densenet("densenet121", growth_rate, (6, 12, 24, 16), num_init_features, pretrained, weights, progress, **kwargs)
 
 
@@ -435,7 +435,7 @@ def bcosdensenet121_pretr_l(pretrained: bool = True, weights: str = "bcosdensene
 
 
 # Function: bcosdensenet161
-def bcosdensenet161(pretrained: bool = False, weights: str = '', progress: bool = True, **kwargs: Any) -> BcosDenseNet:
+def bcosdensenet161(pretrained: bool = False, weights: str = '', progress: bool = False, **kwargs: Any) -> BcosDenseNet:
     return _densenet("densenet161", 48, (6, 12, 36, 24), 96, pretrained, weights, progress, **kwargs)
 
 
@@ -446,7 +446,7 @@ def bcosdensenet161_pretr(pretrained: bool = True, weights: str = 'bcosdensenet1
 
 
 # Function: bcosdensenet169
-def bcosdensenet169(pretrained: bool = False, weights: str = '', progress: bool = True, **kwargs: Any) -> BcosDenseNet:
+def bcosdensenet169(pretrained: bool = False, weights: str = '', progress: bool = False, **kwargs: Any) -> BcosDenseNet:
     return _densenet("densenet169", 32, (6, 12, 32, 32), 64, pretrained, weights, progress, **kwargs)
 
 
@@ -458,7 +458,7 @@ def bcosdensenet169_pretr(pretrained: bool = True, weights: str = 'bcosdensenet1
 
 
 # Function: bcosdensenet201
-def bcosdensenet201(pretrained: bool = False, weights: str = '', progress: bool = True, **kwargs: Any) -> BcosDenseNet:
+def bcosdensenet201(pretrained: bool = False, weights: str = '', progress: bool = False, **kwargs: Any) -> BcosDenseNet:
     return _densenet("densenet201", 32, (6, 12, 48, 32), 64, pretrained, weights, progress, **kwargs)
 
 
