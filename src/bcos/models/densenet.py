@@ -409,7 +409,14 @@ def _densenet(
             model = BcosDenseNet(growth_rate, block_config, num_init_features, **kwargs)
             assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
             url = URLS[weights]
+            pattern = re.compile(r"^(.*denselayer\d+\.(?:norm|relu|conv))\.((?:[12])\.(?:weight|bias|running_mean|running_var))$")
             state_dict = load_state_dict_from_url(url, progress=progress, check_hash=True)
+            for key in list(state_dict.keys()):
+                res = pattern.match(key)
+                if res:
+                    new_key = res.group(1) + res.group(2)
+                    state_dict[new_key] = state_dict[key]
+                    del state_dict[key]
             model.load_state_dict(state_dict)
         else:
             num_classes_ = kwargs['num_classes']
@@ -417,7 +424,14 @@ def _densenet(
             model = BcosDenseNet(growth_rate, block_config, num_init_features, **kwargs)
             assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
             url = URLS[weights]
+            pattern = re.compile(r"^(.*denselayer\d+\.(?:norm|relu|conv))\.((?:[12])\.(?:weight|bias|running_mean|running_var))$")
             state_dict = load_state_dict_from_url(url, progress=progress, check_hash=True)
+            for key in list(state_dict.keys()):
+                res = pattern.match(key)
+                if res:
+                    new_key = res.group(1) + res.group(2)
+                    state_dict[new_key] = state_dict[key]
+                    del state_dict[key]
             model.load_state_dict(state_dict)
             if num_classes_ == 0:
                 model.classifier = nn.Identity()
