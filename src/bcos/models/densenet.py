@@ -367,26 +367,27 @@ class BcosDenseNet(BcosUtilMixin, nn.Module):
 
 
 
+# TODO: Erase after testing
 # Function: Load state dictionary
-def _load_state_dict(model: nn.Module, model_url: str, progress: bool) -> None:
-    # '.'s are no longer allowed in module names, but previous _DenseLayer
-    # has keys 'norm.1', 'relu.1', 'conv.1', 'norm.2', 'relu.2', 'conv.2'.
-    # They are also in the checkpoints in model_urls. This pattern is used
-    # to find such keys.
-    pattern = re.compile(
-        r"^(.*denselayer\d+\.(?:norm|relu|conv))\.((?:[12])\.(?:weight|bias|running_mean|running_var))$"
-    )
+# def _load_state_dict(model: nn.Module, model_url: str, progress: bool) -> None:
+#     # '.'s are no longer allowed in module names, but previous _DenseLayer
+#     # has keys 'norm.1', 'relu.1', 'conv.1', 'norm.2', 'relu.2', 'conv.2'.
+#     # They are also in the checkpoints in model_urls. This pattern is used
+#     # to find such keys.
+#     pattern = re.compile(
+#         r"^(.*denselayer\d+\.(?:norm|relu|conv))\.((?:[12])\.(?:weight|bias|running_mean|running_var))$"
+#     )
 
-    state_dict = load_state_dict_from_url(
-        model_url, map_location="cpu", progress=progress, check_hash=True
-    )
-    for key in list(state_dict.keys()):
-        res = pattern.match(key)
-        if res:
-            new_key = res.group(1) + res.group(2)
-            state_dict[new_key] = state_dict[key]
-            del state_dict[key]
-    model.load_state_dict(state_dict)
+#     state_dict = load_state_dict_from_url(
+#         model_url, map_location="cpu", progress=progress, check_hash=True
+#     )
+#     for key in list(state_dict.keys()):
+#         res = pattern.match(key)
+#         if res:
+#             new_key = res.group(1) + res.group(2)
+#             state_dict[new_key] = state_dict[key]
+#             del state_dict[key]
+#     model.load_state_dict(state_dict)
 
 
 
@@ -407,8 +408,11 @@ def _densenet(
     if pretrained:
         if kwargs['num_classes'] == 1000:
             model = BcosDenseNet(growth_rate, block_config, num_init_features, **kwargs)
+            # print(model.state_dict)
+            
             assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
             url = URLS[weights]
+            
             pattern = re.compile(r"^(.*denselayer\d+\.(?:norm|relu|conv))\.((?:[12])\.(?:weight|bias|running_mean|running_var))$")
             state_dict = load_state_dict_from_url(url, progress=progress, check_hash=True)
             for key in list(state_dict.keys()):
@@ -417,13 +421,19 @@ def _densenet(
                     new_key = res.group(1) + res.group(2)
                     state_dict[new_key] = state_dict[key]
                     del state_dict[key]
-            model.load_state_dict(state_dict)
+            
+            # Note: We have to load state_dict with strict=False because of the BatchNorm keys
+            model.load_state_dict(state_dict, strict=False)
+
         else:
             num_classes_ = kwargs['num_classes']
             kwargs['num_classes'] = 1000
             model = BcosDenseNet(growth_rate, block_config, num_init_features, **kwargs)
+            # print(model.state_dict().keys())
+            
             assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
             url = URLS[weights]
+            
             pattern = re.compile(r"^(.*denselayer\d+\.(?:norm|relu|conv))\.((?:[12])\.(?:weight|bias|running_mean|running_var))$")
             state_dict = load_state_dict_from_url(url, progress=progress, check_hash=True)
             for key in list(state_dict.keys()):
@@ -432,7 +442,9 @@ def _densenet(
                     new_key = res.group(1) + res.group(2)
                     state_dict[new_key] = state_dict[key]
                     del state_dict[key]
-            model.load_state_dict(state_dict)
+            
+            # Note: We have to load state_dict with strict=False because of the BatchNorm keys
+            model.load_state_dict(state_dict, strict=False)
             if num_classes_ == 0:
                 model.classifier = nn.Identity()
                 model.logit_layer = nn.Identity()
