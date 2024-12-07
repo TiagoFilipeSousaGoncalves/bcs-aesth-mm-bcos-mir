@@ -300,7 +300,9 @@ class BcosDenseNet(BcosUtilMixin, nn.Module):
 
         # Final norm layer
         self.features.add_module("norm5", norm_layer(num_features))
-
+        self.num_features_ = num_features
+        self.logit_temperature_ = logit_temperature
+        self.logit_bias_ = logit_bias
         
         self.num_classes = num_classes
         if num_classes == 0:
@@ -402,15 +404,40 @@ def _densenet(
 
     assert arch in ("densenet121", "densenet161", "densenet169", "densenet201"), f"Please provide a valid architecture. {arch} is not valid."
 
-    # Load model
-    model = BcosDenseNet(growth_rate, block_config, num_init_features, **kwargs)
-
-    # If we want a pretrained Bcos model on ImageNet
     if pretrained:
-        assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
-        url = URLS[weights]
-        state_dict = load_state_dict_from_url(url, progress=progress, check_hash=True)
-        model.load_state_dict(state_dict)
+        if kwargs['num_classes'] == 1000:
+            model = BcosDenseNet(growth_rate, block_config, num_init_features, **kwargs)
+            assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
+            url = URLS[weights]
+            state_dict = load_state_dict_from_url(url, progress=progress, check_hash=True)
+            model.load_state_dict(state_dict)
+        else:
+            num_classes_ = kwargs['num_classes']
+            kwargs['num_classes'] = 1000
+            model = BcosDenseNet(growth_rate, block_config, num_init_features, **kwargs)
+            assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
+            url = URLS[weights]
+            state_dict = load_state_dict_from_url(url, progress=progress, check_hash=True)
+            model.load_state_dict(state_dict)
+            if num_classes_ == 0:
+                model.classifier = nn.Identity()
+                model.logit_layer = nn.Identity()
+            elif num_classes_ > 0 and num_classes_ != 1000:
+                model.classifier = BcosConv2d(model.num_features_, num_classes_, kernel_size=1)
+                model.logit_layer = LogitLayer(
+                    logit_temperature=model.logit_temperature_,
+                    logit_bias=model.logit_bias_ or -math.log(num_classes_ - 1),
+                )
+    else:
+        model = BcosDenseNet(growth_rate, block_config, num_init_features, **kwargs)
+
+    # TODO: Erase after reviewing
+    # If we want a pretrained Bcos model on ImageNet
+    # if pretrained:
+    #     assert weights in URLS.keys(), f"Please provide a valid weights string. {weights} is not valid."
+    #     url = URLS[weights]
+    #     state_dict = load_state_dict_from_url(url, progress=progress, check_hash=True)
+    #     model.load_state_dict(state_dict)
 
     return model
 
