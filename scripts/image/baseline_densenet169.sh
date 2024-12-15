@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --partition=gpu_min32
-#SBATCH --qos=gpu_min32
+#SBATCH --partition=gpu_min32gb
+#SBATCH --qos=gpu_min32gb
 #SBATCH --job-name=cind_breloai_bc_ret
 #SBATCH --output=baseline_densenet169.out
 #SBATCH --error=baseline_densenet169.err
