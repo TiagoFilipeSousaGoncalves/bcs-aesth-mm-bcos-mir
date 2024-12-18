@@ -15,7 +15,7 @@ from torch.nn import TripletMarginLoss
 from torch.utils.data import DataLoader
 
 # Project Imports
-from utilities_imgmodels import MODELS_DICT as models_img_dict
+from utilities_bcosmodels import MODELS_DICT as models_img_dict
 from utilities_preproc import sample_manager, QNS_structure
 from utilities_tabmodels import collaborative_tabular_normalize
 from utilities_tabmodels import MODELS_DICT as models_tab_dict

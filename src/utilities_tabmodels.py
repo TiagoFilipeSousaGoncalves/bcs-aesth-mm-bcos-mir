@@ -52,10 +52,23 @@ class TabularMLP(nn.Module):
 
 # Dictionary: Models dictionary
 MODELS_DICT = {
-    "TabularMLP_773_200_20": TabularMLP(773, 200, 20),
-    "TabularMLP_517_200_20": TabularMLP(517, 200, 20),
-    "TabularMLP_293_100_20":TabularMLP(293, 100, 20),
-    "TabularMLP_197_100_20":TabularMLP(197, 100, 20)
+    "baseline_densenet121":TabularMLP(1024, 200, 20),
+    "baseline_densenet121_pretr":TabularMLP(1024, 200, 20),
+    "baseline_densenet161":TabularMLP(2208, 200, 20),
+    "baseline_densenet161_pretr":TabularMLP(2208, 200, 20),
+    "baseline_densenet169":TabularMLP(1664, 200, 20),
+    "baseline_densenet169_pretr":TabularMLP(1664, 200, 20),
+    "baseline_densenet201":TabularMLP(1920, 200, 20),
+    "baseline_densenet201_pretr":TabularMLP(1920, 200, 20),
+    "bcosdensenet121":TabularMLP(1024, 200, 20),
+    "bcosdensenet121_pretr":TabularMLP(1024, 200, 20),
+    "bcosdensenet121_pretr_l":TabularMLP(1024, 200, 20),
+    "bcosdensenet161":TabularMLP(2208, 200, 20),
+    "bcosdensenet161_pretr":TabularMLP(2208, 200, 20),
+    "bcosdensenet169":TabularMLP(1664, 200, 20),
+    "bcosdensenet169_pretr":TabularMLP(1664, 200, 20),
+    "bcosdensenet201":TabularMLP(1920, 200, 20),
+    "bcosdensenet201_pretr":TabularMLP(1920, 200, 20)
 }
 
 

@@ -3,7 +3,7 @@
 # import timm
 
 # PyTorch Imports
-# import torch.nn as nn
+import torch
 # from torch.nn import functional as F
 # import torchvision.transforms as transforms
 # from torchvision.models import resnet50, ResNet50_Weights, vgg16, VGG16_Weights
@@ -94,3 +94,16 @@ MODELS_DICT = {
     "bcosdensenet201":bcosdensenet201(num_classes=0),
     "bcosdensenet201_pretr":bcosdensenet201_pretr(num_classes=0)
 }
+
+
+
+# if __name__ == "__main__":
+
+#     for k, v in MODELS_DICT.items():
+#         model = v
+#         if "bcos" in k:
+#             rand_tensor = torch.rand(1, 6, 224, 224)
+#         else:
+#             rand_tensor = torch.rand(1, 3, 224, 224)
+#         out = model(rand_tensor)
+#         print(k, rand_tensor.shape, out.shape)

@@ -15,7 +15,6 @@ from torch.utils.data import DataLoader
 from torch.nn import TripletMarginLoss
 
 # Project Imports
-# from utilities_imgmodels import MODELS_DICT as models_dict
 from utilities_bcosmodels import MODELS_DICT as models_dict
 from utilities_preproc import sample_manager
 from utilities_traintest import TripletDataset, train_model, eval_model
