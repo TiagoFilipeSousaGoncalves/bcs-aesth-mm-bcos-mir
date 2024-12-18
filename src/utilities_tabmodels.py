@@ -55,7 +55,7 @@ MODELS_DICT = {
     "baseline_densenet121":TabularMLP(1024, 200, 20),
     "baseline_densenet121_pretr":TabularMLP(1024, 200, 20),
     "baseline_densenet161":TabularMLP(2208, 200, 20),
-    "baseline_densenet161_pretr":TabularMLP(2208, 200, 20),
+    "baseline_densenet161_pretr":TabularMLP(2213, 200, 20),
     "baseline_densenet169":TabularMLP(1664, 200, 20),
     "baseline_densenet169_pretr":TabularMLP(1664, 200, 20),
     "baseline_densenet201":TabularMLP(1920, 200, 20),
