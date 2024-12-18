@@ -139,7 +139,7 @@ if __name__ == "__main__":
 
         # Initialize WandB
         wandb_run = wandb.init(
-            project="bcs-aesth-mm-attention-mir",
+            project="bcs-aesth-mm-bcos-mir",
             name=config_json["model_img_name"]+'_'+config_json["model_tab_name"]+'_'+timestamp,
             config=wandb_project_config
         )
