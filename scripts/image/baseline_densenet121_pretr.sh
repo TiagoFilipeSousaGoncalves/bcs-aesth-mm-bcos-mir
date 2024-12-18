@@ -21,7 +21,7 @@ python src/main_image.py \
  --gpu_id 0 \
  --pickles_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/pickles/E' \
  --train_or_test 'test' \
- --checkpoint_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/E/2024-12-06_17-50-15/' \
+ --checkpoint_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/E/2024-12-09_20-32-40/' \
  --verbose
 echo "Finished"
 
@@ -38,6 +38,6 @@ python src/main_image.py \
  --gpu_id 0 \
  --pickles_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/pickles/F' \
  --train_or_test 'test' \
- --checkpoint_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/F/2024-12-07_09-28-23/' \
+ --checkpoint_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/F/2024-12-10_15-51-43/' \
  --verbose
 echo "Finished"
