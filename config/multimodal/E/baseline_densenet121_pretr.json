@@ -7,6 +7,6 @@
     "split_ratio":0.8,
     "catalogue_type":"E",
     "doctor_code":-1,
-    "model_img_name":"DaViT_Tiny",
-    "model_tab_name":"TabularMLP_773_200_20"
+    "model_img_name":"baseline_densenet121_pretr",
+    "model_tab_name":"baseline_densenet121_pretr"
 }
