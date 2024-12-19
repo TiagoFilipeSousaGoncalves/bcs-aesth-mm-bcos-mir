@@ -7,6 +7,6 @@
     "split_ratio":0.8,
     "catalogue_type":"F",
     "doctor_code":-1,
-    "model_img_name":"DinoV2_Base_Patch16_224",
-    "model_tab_name":"TabularMLP_773_200_20"
+    "model_img_name":"baseline_densenet201_pretr",
+    "model_tab_name":"baseline_densenet201_pretr"
 }
