@@ -7,7 +7,7 @@
 
 
 
-echo "CINDERELLA BreLoAI Retrieval: A Study with Attention Mechanisms"
+echo "CINDERELLA BreLoAI Retrieval: A Study with Multi-modal B-cos Networks"
 # echo "Training Catalogue Type: E"
 # python src/main_multimodal.py \
 #  --gpu_id 0 \
