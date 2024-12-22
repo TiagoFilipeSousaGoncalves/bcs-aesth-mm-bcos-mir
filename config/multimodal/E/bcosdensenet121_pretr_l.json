@@ -7,6 +7,6 @@
     "split_ratio":0.8,
     "catalogue_type":"E",
     "doctor_code":-1,
-    "model_img_name":"MaxViT_Tiny_224",
-    "model_tab_name":"TabularMLP_517_200_20"
+    "model_img_name":"bcosdensenet121_pretr_l",
+    "model_tab_name":"bcosdensenet121_pretr_l"
 }
