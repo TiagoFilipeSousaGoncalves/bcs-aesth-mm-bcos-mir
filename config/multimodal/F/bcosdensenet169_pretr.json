@@ -7,6 +7,6 @@
     "split_ratio":0.8,
     "catalogue_type":"F",
     "doctor_code":-1,
-    "model_img_name":"bcosdensenet121",
-    "model_tab_name":"bcosdensenet121"
+    "model_img_name":"bcosdensenet169_pretr",
+    "model_tab_name":"bcosdensenet169_pretr"
 }
