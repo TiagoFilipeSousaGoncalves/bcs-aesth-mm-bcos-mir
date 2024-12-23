@@ -22,11 +22,11 @@ python src/main_image.py \
  --config_json 'config/image/E/DaViT_Tiny.json' \
  --pickles_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/pickles/E' \
  --train_or_test 'test' \
- --checkpoint_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/E/2024-12-18_20-55-34/' \
+ --checkpoint_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/E/2024-12-21_00-41-02/' \
  --verbose
 echo "Finished"
 
-echo "Training Catalogue Type: F"
+# echo "Training Catalogue Type: F"
 # python src/main_image.py \
 #  --gpu_id 0 \
 #  --config_json 'config/image/F/bcosdensenet169_pretr.json' \
@@ -39,6 +39,6 @@ python src/main_image.py \
  --gpu_id 0 \
  --pickles_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/pickles/F' \
  --train_or_test 'test' \
- --checkpoint_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/F/2024-12-20_16-02-46/' \
+ --checkpoint_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/F/2024-12-22_13-05-42/' \
  --verbose
 echo "Finished"
