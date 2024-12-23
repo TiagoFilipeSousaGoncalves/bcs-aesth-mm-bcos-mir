@@ -19,7 +19,6 @@ echo "CINDERELLA BreLoAI Retrieval: A Study with Bcos Networks"
 echo "Testing Catalogue Type: E"
 python src/main_image.py \
  --gpu_id 0 \
- --config_json 'config/image/E/DaViT_Tiny.json' \
  --pickles_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/pickles/E' \
  --train_or_test 'test' \
  --checkpoint_path '/nas-ctm01/datasets/private/CINDERELLA/experiments/retrieval/tgoncalv/results/E/2024-12-18_20-55-34/' \
