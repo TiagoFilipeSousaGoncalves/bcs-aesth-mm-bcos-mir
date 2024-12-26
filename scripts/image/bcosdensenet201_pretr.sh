@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --partition=cpu_8cores
-#SBATCH --qos=cpu_8cores
+#SBATCH --partition=gpu_min24gb
+#SBATCH --qos=gpu_min24gb
 #SBATCH --job-name=cind_breloai_bc_ret
 #SBATCH --output=bcosdensenet201_pretr.out
 #SBATCH --error=bcosdensenet201_pretr.err
